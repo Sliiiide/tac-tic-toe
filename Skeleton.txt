@@ -1,0 +1,15 @@
+#define playing board (nested list or several print statements)
+
+#symbol selection
+    #player choice or forced
+   
+#playtime(functions req. for playing (in no order))
+    #symbol placement (co-ords or pos)
+    #checking placement
+        #either taken, illegal, or undefined
+    #game ending scenarios 
+        #fullboard or WWCD
+    #turn switching
+    #play again!
+
+#Start basic and advance/make revisions on revisions
