@@ -12,9 +12,9 @@ def playboard():
     
 #player symbols and marked spaces
 def player_inputs(player):
-    player_sym = ['X', 'O']
+    player_symbol = ['X', 'O']
     free_space = True
-    pos = int(input('Player {playerNo} turn! Choose a space!'.format(playerNo = player +1)))
+    pos = int(input('Player {playerNo}, it is your turn! Choose a space!  '.format(playerNo = player +1)))
     if board_spaces[pos] == 'X' or board_spaces[pos] == 'O':
         free_space = False
     if not free_space:
@@ -22,36 +22,36 @@ def player_inputs(player):
         player_inputs(player)
     else:
         empty_spaces.remove(pos)
-        board_spaces[pos] = player_sym[player]
+        board_spaces[pos] = player_symbol[player]
         return 1
     
 #winner winner chicken dinner
 #def symbols, winning pos, and check for win
 #Rows,Columns,Diagonals
 def wwcd():
-  player_sym = ['X', 'O']
-  winning_pos = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]]
-  for check in winning_pos:
-    first_symbol = board_spaces[check[0]]
-    if first_symbol != ' ':
-      won = True
-      for point in check:
-        if playboard[point] !=  first_symbol:
-          won = False
-          break  
-      if won:
-        if first_symbol == player_sym[0]:
-          print('player 1 won')
-        else:
-          print('player 2 won')
-        break
-    else:
-      won = False
+  player_symbol = ['X', 'O']
+  winning_positions =[[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]]
+  for check in winning_positions:
+      first_symbol = board_spaces[check[0]]
+      if first_symbol != ' ':
+          won = True
+          for point in check:
+              if board_spaces[point] != first_symbol:
+                won = False
+                break
+          if won:
+              if first_symbol == player_symbol[0]:
+                  print('Player 1 won')
+              else:
+                  print('Player 2 won')
+              break
+          else:
+              won = False
   if won:
-    return 0
+      return 0
   else:
-    return 1
-    
+      return 1
+
 #gametime!
 def gametime():
   player = 0   
@@ -69,3 +69,4 @@ gametime()
 #i have rushed into this a bit too quickly theres a whole bunch of mistakes w/num, spelling, var names, etc
 #and not enough bleeding comments
 ##10/6/22 - fixed point 2 but raised a tabbing issue
+##11/6/22 - fixed all above should be a working game.
